@@ -1,7 +1,15 @@
-def main():
-    """Main entry point for the ai-multi-agent-system package."""
-    print("ai-multi-agent-system is ready.")
+from research_agent import ResearchAgent
+from writer_agent import WriterAgent
+from reviewer_agent import ReviewerAgent
 
+research_agent = ResearchAgent()
+writer_agent = WriterAgent()
+reviewer_agent = ReviewerAgent()
 
-if __name__ == "__main__":
-    main()
+topic = "Artificial Intelligence"
+
+research = research_agent.research(topic)
+article = writer_agent.write_article(research)
+final_article = reviewer_agent.review(article)
+
+print(final_article)
